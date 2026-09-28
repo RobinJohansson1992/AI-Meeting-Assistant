@@ -1,0 +1,86 @@
+.pageWrapper {
+  width: 80vw;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  margin-top: 3rem;
+}
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35vw;
+  height: 30rem;
+  background-color: aliceblue;
+  border-radius: 2rem;
+}
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35vw;
+  height: 30rem;
+  background-color: aliceblue;
+  border-radius: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+.btn {
+  color: rgb(182, 222, 244);
+  background-color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  border-radius: 0px 0px 10px 10px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 5px;
+  margin-top: -3rem;
+  border-top: 1px solid white;
+}
+.btn:hover {
+  background-color: rgb(29, 33, 42);
+  cursor: pointer;
+}
+.notes {
+  width: 80%;
+  height: 65%;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  background-color: rgb(12, 28, 43);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 0px;
+}
+.inputContainer h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.resultContainer h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.pageHeader {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 3rem;
+  letter-spacing: 3px;
+}
+.result {
+  background-color: rgb(12, 28, 43);
+  width: 80%;
+  height: 70%;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.result p {
+  color: white;
+}

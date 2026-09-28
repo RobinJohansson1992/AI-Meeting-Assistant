@@ -2,6 +2,7 @@ import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { setNotes, setResult } from "../reducers/meetingReducer";
 import { summarizeNotes } from "../services/api";
+import "./Pages.css";
 
 function Summarize() {
   const dispatch = useDispatch();
@@ -20,24 +21,33 @@ function Summarize() {
   return (
     <main>
       <Navbar />
+      <div className="pageHeader">
+        <h1>Sammanfatta möte</h1>
+      </div>
+      <section className="pageWrapper">
+        <div className="inputContainer">
+          <h2>Mötesanteckningar</h2>
+          <textarea
+            className="notes"
+            value={notes}
+            onChange={handleNotesChange}
+            placeholder="Skriv ner mötesantekningarna här..."
+          />
 
-      <h1>Sammanfatta möte</h1>
-
-      <textarea
-        id="notes"
-        value={notes}
-        onChange={handleNotesChange}
-        placeholder="Skriv ner mötesantekningarna här..."
-      />
-
-      <button onClick={handleSummarize}>Sammanfatta</button>
-
-      {result && (
-        <div>
-          <h2>Sammanfattning</h2>
-          <p>{result}</p>
+          <button className="btn" onClick={handleSummarize}>
+            Sammanfatta
+          </button>
         </div>
-      )}
+
+        <div className="resultContainer">
+          <h2>Sammanfattning</h2>
+          {result && (
+            <div className="result">
+              <p>{result}</p>
+            </div>
+          )}
+        </div>
+      </section>
     </main>
   );
 }
