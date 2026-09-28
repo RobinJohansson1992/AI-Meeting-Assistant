@@ -1,0 +1,33 @@
+.assistantFeature {
+  width: 20rem;
+  height: 15rem;
+  background-color: rgb(19, 42, 64);
+  margin: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  box-shadow: 5px 5px 5px black;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.assistantFeature:hover {
+  transform: scale(1.05);
+  background-color: rgb(19, 40, 60);
+  box-shadow: 10px 10px 10px black;
+}
+
+.assistantFeature p {
+  color: rgb(140, 176, 208);
+  font-size: 1.3rem;
+}
+.assistantFeature h2 {
+  color: rgb(204, 231, 255);
+  font-size: 2.3rem;
+  margin-top: 3rem;
+  margin-bottom: 0rem;
+  text-shadow: 3px 3px 15px rgba(6, 6, 6, 0.829);
+  transform: scaleY(1.2);
+}
