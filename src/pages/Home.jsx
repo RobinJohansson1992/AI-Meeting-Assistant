@@ -1,12 +1,14 @@
 import AssistantFeature from "../components/assistantFeature/AssistantFeature";
 import "../App.css";
+import Navbar from "../components/navbar/Navbar";
 
 function Home() {
   return (
     <>
+      <Navbar />
       <section className="mainApp">
         <div className="mainHeader">
-          <h1>AI Mötesassistent</h1>
+          <h1>Välkommen!</h1>
           <p>- Vad vill du ha hjälp med idag?</p>
         </div>
         <div className="featuresContainer">
@@ -24,7 +26,7 @@ function Home() {
 
           <AssistantFeature
             title="Skapa inbjudan"
-            description="Skapa en inbjudan till ett möte."
+            description="Skapa en professionell inbjudan till ett möte."
             to="/invitation"
           />
         </div>

@@ -22,6 +22,11 @@ main {
   display: flex;
   flex-direction: column;
   justify-self: start;
+  margin-left: 10rem;
+  letter-spacing: 3px;
+}
+.mainHeader p {
+  margin-left: 3rem;
 }
 h1 {
   color: rgb(154, 197, 222);
@@ -38,12 +43,13 @@ h2 {
 }
 .featuresContainer {
   display: flex;
+  box-sizing: border-box;
   width: 80vw;
   justify-content: space-around;
   background-color: rgb(189, 200, 210);
-  border-radius: 10px;
-  height: 20rem;
+  border-radius: 20rem;
+  height: 27rem;
   align-items: center;
-  padding: 1rem;
+  padding: 5rem;
   margin-top: 3rem;
 }
