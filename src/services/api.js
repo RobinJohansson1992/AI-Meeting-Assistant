@@ -33,3 +33,19 @@ export async function createAgenda(agendaData) {
 
   return await response.json();
 }
+
+export async function createInvitation(invitationData) {
+  const response = await fetch(`${API_URL}/invitation`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(invitationData),
+  });
+
+  if (!response.ok) {
+    throw new Error("Något gick fel...");
+  }
+
+  return await response.json();
+}

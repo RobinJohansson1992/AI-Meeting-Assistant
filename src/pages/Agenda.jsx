@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setNotes, setResult } from "../reducers/meetingReducer";
+import { setResult } from "../reducers/meetingReducer";
 import { createAgenda } from "../services/api";
 import "./Pages.css";
 import { useState } from "react";
@@ -42,6 +42,7 @@ function Agenda() {
 
           <label htmlFor="purpose">Syfte</label>
           <textarea
+            className="agendaTextarea"
             id="purpose"
             value={purpose}
             onChange={(event) => setPurpose(event.target.value)}
@@ -57,13 +58,13 @@ function Agenda() {
             onChange={(event) => setDurationInMinutes(event.target.value)}
           />
 
-          <button className="agendaBtn" onClick={handleCreateAgenda}>
+          <button className="generateBtn" onClick={handleCreateAgenda}>
             Generera agenda
           </button>
         </div>
 
         <div className="resultContainer">
-          <h2>Agenda för mötet:</h2>
+          <h2>Genererad agenda:</h2>
           {result && (
             <div className="result">
               <p>{result}</p>

@@ -9,8 +9,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 35vw;
-  height: 30rem;
+  height: 32rem;
   background-color: aliceblue;
   border-radius: 2rem;
 }
@@ -19,11 +20,28 @@
   flex-direction: column;
   align-items: center;
   width: 35vw;
-  height: 30rem;
+  height: 32rem;
   background-color: aliceblue;
   border-radius: 2rem;
   box-sizing: border-box;
   padding: 1rem;
+}
+.generateBtn {
+  color: rgb(6, 26, 37);
+  background-color: rgb(202, 209, 214);
+  padding: 0.5rem 2rem;
+  border-radius: 0px 0px 10px 10px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 5px;
+  margin-top: 1rem;
+  border: none;
+  border-top: 2px solid rgb(6, 26, 37);
+  cursor: pointer;
 }
 .btn {
   color: rgb(182, 222, 244);
@@ -46,7 +64,7 @@
 }
 .notes {
   width: 80%;
-  height: 65%;
+  height: 50%;
   font-size: 1.1rem;
   box-sizing: border-box;
   padding: 1rem;
@@ -57,8 +75,25 @@
 }
 .inputContainer h2 {
   font-size: 3rem;
-  margin-bottom: 1rem;
   margin-top: 1rem;
+}
+.inputContainer label {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  transform: scaleY(0.9);
+}
+.inputContainer input {
+  width: 70%;
+  height: 2rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: center;
+}
+.agendaTextarea {
+  width: 70%;
+  height: 8rem;
+  box-sizing: border-box;
+  padding: 1rem;
 }
 .resultContainer h2 {
   font-size: 3rem;
@@ -68,7 +103,7 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   letter-spacing: 3px;
 }
 .result {

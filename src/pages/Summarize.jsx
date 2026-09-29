@@ -34,7 +34,7 @@ function Summarize() {
             placeholder="Skriv ner mötesantekningarna här..."
           />
 
-          <button className="btn" onClick={handleSummarize}>
+          <button className="generateBtn" onClick={handleSummarize}>
             Sammanfatta
           </button>
         </div>
