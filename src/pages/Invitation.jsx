@@ -30,7 +30,7 @@ function Invitation() {
     <main>
       <Navbar />
       <div className="pageHeader">
-        <h1>Skapa inbjudan</h1>
+        <p>- Skapa inbjudan till möte</p>
       </div>
       <section className="pageWrapper">
         <div className="inputContainer">

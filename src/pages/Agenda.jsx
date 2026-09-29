@@ -26,7 +26,7 @@ function Agenda() {
     <main>
       <Navbar />
       <div className="pageHeader">
-        <h1>Skapa mötesagenda</h1>
+        <p>- Skapa mötesagenda</p>
       </div>
       <section className="pageWrapper">
         <div className="inputContainer">

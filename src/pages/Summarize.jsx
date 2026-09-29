@@ -22,7 +22,7 @@ function Summarize() {
     <main>
       <Navbar />
       <div className="pageHeader">
-        <h1>Sammanfatta möte</h1>
+        <p>- Sammanfatta möte</p>
       </div>
       <section className="pageWrapper">
         <div className="inputContainer">

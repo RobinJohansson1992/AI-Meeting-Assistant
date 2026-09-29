@@ -11,14 +11,16 @@
   text-align: center;
   box-sizing: border-box;
   color: white;
-  box-shadow: 5px 5px 5px black;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.516);
   text-decoration: none;
   padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.315);
 }
 .assistantFeature:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
   background-color: rgb(19, 40, 60);
-  box-shadow: 10px 10px 10px black;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.39);
+  background-color: rgb(22, 50, 77);
 }
 
 .assistantFeature p {
@@ -26,10 +28,10 @@
   font-size: 1.3rem;
 }
 .assistantFeature h2 {
-  color: rgb(204, 231, 255);
+  color: rgb(234, 235, 236);
   font-size: 2.3rem;
   margin-bottom: 0rem;
-  text-shadow: 3px 3px 15px rgba(6, 6, 6, 0.829);
+  text-shadow: 2px 2px 3px rgba(6, 6, 6, 0.829);
   transform: scaleY(1.1);
   letter-spacing: 2px;
   margin-bottom: 1rem;
