@@ -1,6 +1,10 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setInvitation } from "../reducers/meetingReducer";
+import {
+  setInvitation,
+  setLoading,
+  setError,
+} from "../reducers/meetingReducer";
 import { createInvitation } from "../services/api";
 import "./Pages.css";
 import { useState } from "react";
@@ -8,6 +12,8 @@ import { useState } from "react";
 function Invitation() {
   const dispatch = useDispatch();
   const result = useSelector((state) => state.meeting.invitation);
+  const loading = useSelector((state) => state.meeting.loading);
+  const error = useSelector((state) => state.meeting.error);
 
   const [title, setTitle] = useState();
   const [week, setWeek] = useState();
@@ -16,15 +22,24 @@ function Invitation() {
   const [purpose, setPurpose] = useState();
 
   const handleCreateInvitation = async () => {
-    const invitationData = {
-      title: title,
-      week: week,
-      weekDay: weekDay,
-      location: location,
-      purpose: purpose,
-    };
-    const data = await createInvitation(invitationData);
-    dispatch(setInvitation(data.result));
+    try {
+      dispatch(setLoading(true));
+      dispatch(setError(null));
+
+      const invitationData = {
+        title: title,
+        week: week,
+        weekDay: weekDay,
+        location: location,
+        purpose: purpose,
+      };
+      const data = await createInvitation(invitationData);
+      dispatch(setInvitation(data.result));
+    } catch (error) {
+      dispatch(setLoading(false));
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
   return (
     <main>
@@ -80,9 +95,15 @@ function Invitation() {
             placeholder="Vad är syftet med mötet?"
           />
 
-          <button className="generateBtn" onClick={handleCreateInvitation}>
-            Generera inbjudan
+          <button
+            className="generateBtn"
+            onClick={handleCreateInvitation}
+            disabled={loading}
+          >
+            {loading ? "Skapar inbjudan..." : "Generera inbjudan"}
           </button>
+
+          {error && <p>Fel: {error}</p>}
         </div>
 
         <div className="resultContainer">

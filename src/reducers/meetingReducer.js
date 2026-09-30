@@ -5,6 +5,8 @@ const initialState = {
   summary: "",
   agenda: "",
   invitation: "",
+  loading: false,
+  error: null,
 };
 
 const meetingSlice = createSlice({
@@ -20,14 +22,25 @@ const meetingSlice = createSlice({
     setAgenda: (state, action) => {
       state.agenda = action.payload;
     },
-
     setInvitation: (state, action) => {
       state.invitation = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
+    setError: (state, action) => {
+      state.error = action.payload;
     },
   },
 });
 
-export const { setNotes, setSummary, setAgenda, setInvitation } =
-  meetingSlice.actions;
+export const {
+  setNotes,
+  setSummary,
+  setAgenda,
+  setInvitation,
+  setLoading,
+  setError,
+} = meetingSlice.actions;
 
 export default meetingSlice.reducer;

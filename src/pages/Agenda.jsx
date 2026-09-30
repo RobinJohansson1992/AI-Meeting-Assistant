@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setAgenda } from "../reducers/meetingReducer";
+import { setAgenda, setLoading, setError } from "../reducers/meetingReducer";
 import { createAgenda } from "../services/api";
 import "./Pages.css";
 import { useState } from "react";
@@ -8,19 +8,30 @@ import { useState } from "react";
 function Agenda() {
   const dispatch = useDispatch();
   const result = useSelector((state) => state.meeting.agenda);
+  const loading = useSelector((state) => state.meeting.loading);
+  const error = useSelector((state) => state.meeting.error);
 
   const [title, setTitle] = useState();
   const [purpose, setPurpose] = useState();
   const [durationInMinutes, setDurationInMinutes] = useState(60);
 
   const handleCreateAgenda = async () => {
-    const agendaData = {
-      title: title,
-      purpose: purpose,
-      durationInMinutes: Number(durationInMinutes),
-    };
-    const data = await createAgenda(agendaData);
-    dispatch(setAgenda(data.result));
+    try {
+      dispatch(setLoading(true));
+      dispatch(setError(null));
+
+      const agendaData = {
+        title: title,
+        purpose: purpose,
+        durationInMinutes: Number(durationInMinutes),
+      };
+      const data = await createAgenda(agendaData);
+      dispatch(setAgenda(data.result));
+    } catch (error) {
+      dispatch(setLoading(false));
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
   return (
     <main>
@@ -58,9 +69,15 @@ function Agenda() {
             onChange={(event) => setDurationInMinutes(event.target.value)}
           />
 
-          <button className="generateBtn" onClick={handleCreateAgenda}>
-            Generera agenda
+          <button
+            className="generateBtn"
+            onClick={handleCreateAgenda}
+            disabled={loading}
+          >
+            {loading ? "Skapar agenda..." : "Generera agenda"}
           </button>
+
+          {error && <p>Fel: {error}</p>}
         </div>
 
         <div className="resultContainer">
