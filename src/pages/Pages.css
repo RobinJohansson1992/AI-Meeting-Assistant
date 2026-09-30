@@ -39,9 +39,11 @@
 }
 .generateBtn {
   color: rgb(254, 255, 255);
+  color: rgb(200, 227, 243);
   background-color: rgb(6, 26, 37);
+  background-color: rgba(252, 252, 252, 0.096);
   padding: 0.5rem 2rem;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 15px 15px;
   font-weight: 600;
   font-size: 1.6rem;
   width: 100%;
@@ -55,7 +57,7 @@
   cursor: pointer;
 }
 .generateBtn:hover {
-  background-color: rgb(10, 45, 63);
+  background-color: rgba(252, 252, 252, 0.226);
   cursor: pointer;
 }
 .notes {
@@ -88,6 +90,7 @@
   font-size: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.29);
   background-color: rgba(2, 2, 2, 0.516);
+  color: white;
 }
 .agendaTextarea {
   width: 100%;
@@ -98,6 +101,7 @@
   border: 1px solid rgba(0, 0, 0, 0.29);
   background-color: rgba(2, 2, 2, 0.516);
   text-align: center;
+  color: white;
 }
 .resultContainer h2 {
   font-size: 3rem;
