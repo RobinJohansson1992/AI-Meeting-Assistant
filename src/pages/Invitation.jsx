@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setResult } from "../reducers/meetingReducer";
+import { setInvitation } from "../reducers/meetingReducer";
 import { createInvitation } from "../services/api";
 import "./Pages.css";
 import { useState } from "react";
 
 function Invitation() {
   const dispatch = useDispatch();
-  const result = useSelector((state) => state.meeting.result);
+  const result = useSelector((state) => state.meeting.invitation);
 
   const [title, setTitle] = useState();
   const [week, setWeek] = useState();
@@ -24,7 +24,7 @@ function Invitation() {
       purpose: purpose,
     };
     const data = await createInvitation(invitationData);
-    dispatch(setResult(data.result));
+    dispatch(setInvitation(data.result));
   };
   return (
     <main>

@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setResult } from "../reducers/meetingReducer";
+import { setAgenda } from "../reducers/meetingReducer";
 import { createAgenda } from "../services/api";
 import "./Pages.css";
 import { useState } from "react";
 
 function Agenda() {
   const dispatch = useDispatch();
-  const result = useSelector((state) => state.meeting.result);
+  const result = useSelector((state) => state.meeting.agenda);
 
   const [title, setTitle] = useState();
   const [purpose, setPurpose] = useState();
@@ -20,7 +20,7 @@ function Agenda() {
       durationInMinutes: Number(durationInMinutes),
     };
     const data = await createAgenda(agendaData);
-    dispatch(setResult(data.result));
+    dispatch(setAgenda(data.result));
   };
   return (
     <main>

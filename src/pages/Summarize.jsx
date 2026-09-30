@@ -1,13 +1,13 @@
 import Navbar from "../components/navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { setNotes, setResult } from "../reducers/meetingReducer";
+import { setNotes, setSummary } from "../reducers/meetingReducer";
 import { summarizeNotes } from "../services/api";
 import "./Pages.css";
 
 function Summarize() {
   const dispatch = useDispatch();
   const notes = useSelector((state) => state.meeting.notes);
-  const result = useSelector((state) => state.meeting.result);
+  const result = useSelector((state) => state.meeting.summary);
 
   const handleNotesChange = (event) => {
     dispatch(setNotes(event.target.value));
@@ -15,7 +15,7 @@ function Summarize() {
 
   const handleSummarize = async () => {
     const data = await summarizeNotes(notes);
-    dispatch(setResult(data.result));
+    dispatch(setSummary(data.result));
   };
 
   return (

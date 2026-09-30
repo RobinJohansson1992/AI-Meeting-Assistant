@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   notes: "",
-  result: "",
+  summary: "",
+  agenda: "",
+  invitation: "",
 };
 
 const meetingSlice = createSlice({
@@ -12,12 +14,20 @@ const meetingSlice = createSlice({
     setNotes: (state, action) => {
       state.notes = action.payload;
     },
-    setResult: (state, action) => {
-      state.result = action.payload;
+    setSummary: (state, action) => {
+      state.summary = action.payload;
+    },
+    setAgenda: (state, action) => {
+      state.agenda = action.payload;
+    },
+
+    setInvitation: (state, action) => {
+      state.invitation = action.payload;
     },
   },
 });
 
-export const { setNotes, setResult } = meetingSlice.actions;
+export const { setNotes, setSummary, setAgenda, setInvitation } =
+  meetingSlice.actions;
 
 export default meetingSlice.reducer;
