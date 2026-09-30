@@ -2,6 +2,8 @@
   width: 22rem;
   height: 21rem;
   background-color: rgb(19, 42, 64);
+  background: #11181c9a;
+
   margin: 1rem;
   border-radius: 20rem;
   display: flex;
@@ -10,17 +12,15 @@
   justify-content: center;
   text-align: center;
   box-sizing: border-box;
-  color: white;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.516);
+  box-shadow: 0px 0px 15px rgba(193, 212, 238, 0.241);
   text-decoration: none;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.315);
 }
 .assistantFeature:hover {
   transform: scale(1.01);
   background-color: rgb(19, 40, 60);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.39);
-  background-color: rgb(22, 50, 77);
+  background-color: rgba(22, 50, 77, 0.734);
 }
 
 .assistantFeature p {
