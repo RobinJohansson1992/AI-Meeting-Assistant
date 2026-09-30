@@ -11,8 +11,8 @@ function Agenda() {
   const loading = useSelector((state) => state.meeting.loading);
   const error = useSelector((state) => state.meeting.error);
 
-  const [title, setTitle] = useState();
-  const [purpose, setPurpose] = useState();
+  const [title, setTitle] = useState("");
+  const [purpose, setPurpose] = useState("");
   const [durationInMinutes, setDurationInMinutes] = useState(60);
 
   const handleCreateAgenda = async () => {
@@ -28,20 +28,19 @@ function Agenda() {
       const data = await createAgenda(agendaData);
       dispatch(setAgenda(data.result));
     } catch (error) {
-      dispatch(setLoading(false));
+      dispatch(setError(error.message));
     } finally {
       dispatch(setLoading(false));
     }
   };
   return (
-    <main>
+    <>
       <Navbar />
       <div className="pageHeader">
         <p>- Skapa mötesagenda</p>
       </div>
       <section className="pageWrapper">
         <div className="inputContainer">
-          <h2>Information:</h2>
           <label htmlFor="title">Titel</label>
           <input
             id="title"
@@ -60,7 +59,7 @@ function Agenda() {
             placeholder="Vad är syftet med mötet?"
           />
 
-          <label htmlFor="purpose">Längd i minuter</label>
+          <label htmlFor="duration">Längd i minuter</label>
           <input
             id="duration"
             type="number"
@@ -72,7 +71,11 @@ function Agenda() {
           <button
             className="generateBtn"
             onClick={handleCreateAgenda}
-            disabled={loading}
+            disabled={
+              loading ||
+              title.trim().length === 0 ||
+              purpose.trim().length === 0
+            }
           >
             {loading ? "Skapar agenda..." : "Generera agenda"}
           </button>
@@ -89,7 +92,7 @@ function Agenda() {
           )}
         </div>
       </section>
-    </main>
+    </>
   );
 }
 
