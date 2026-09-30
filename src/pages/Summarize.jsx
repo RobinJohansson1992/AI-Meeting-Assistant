@@ -28,14 +28,14 @@ function Summarize() {
       const data = await summarizeNotes(notes);
       dispatch(setSummary(data.result));
     } catch (error) {
-      dispatch(setLoading(false));
+      dispatch(setError(error.message));
     } finally {
       dispatch(setLoading(false));
     }
   };
 
   return (
-    <main>
+    <>
       <Navbar />
       <div className="pageHeader">
         <p>- Sammanfatta möte</p>
@@ -70,7 +70,7 @@ function Summarize() {
           )}
         </div>
       </section>
-    </main>
+    </>
   );
 }
 

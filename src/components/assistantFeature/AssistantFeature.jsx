@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./AssistantFeature.css";
 
-function AssistantFeauture({ title, description, to }) {
+function AssistantFeature({ title, description, to }) {
   return (
     <Link to={to} className="assistantFeature">
       <h2>{title}</h2>
@@ -10,4 +10,4 @@ function AssistantFeauture({ title, description, to }) {
   );
 }
 
-export default AssistantFeauture;
+export default AssistantFeature;

@@ -15,11 +15,12 @@ function Invitation() {
   const loading = useSelector((state) => state.meeting.loading);
   const error = useSelector((state) => state.meeting.error);
 
-  const [title, setTitle] = useState();
-  const [week, setWeek] = useState();
-  const [weekDay, setWeekDay] = useState();
-  const [location, setLocation] = useState();
-  const [purpose, setPurpose] = useState();
+  const [title, setTitle] = useState("");
+  const [week, setWeek] = useState("");
+  const [weekDay, setWeekDay] = useState("");
+  const [time, setTime] = useState("");
+  const [location, setLocation] = useState("");
+  const [purpose, setPurpose] = useState("");
 
   const handleCreateInvitation = async () => {
     try {
@@ -30,26 +31,26 @@ function Invitation() {
         title: title,
         week: week,
         weekDay: weekDay,
+        time: time,
         location: location,
         purpose: purpose,
       };
       const data = await createInvitation(invitationData);
       dispatch(setInvitation(data.result));
     } catch (error) {
-      dispatch(setLoading(false));
+      dispatch(setError(error.message));
     } finally {
       dispatch(setLoading(false));
     }
   };
   return (
-    <main>
+    <>
       <Navbar />
       <div className="pageHeader">
         <p>- Skapa inbjudan till möte</p>
       </div>
       <section className="pageWrapper">
         <div className="inputContainer">
-          <h2>Information:</h2>
           <label htmlFor="title">Titel</label>
           <input
             id="title"
@@ -77,6 +78,15 @@ function Invitation() {
             placeholder="T.ex. Måndag"
           />
 
+          <label htmlFor="time">Tid</label>
+          <input
+            id="time"
+            type="text"
+            value={time}
+            onChange={(event) => setTime(event.target.value)}
+            placeholder="T.ex. 13:00"
+          />
+
           <label htmlFor="location">Plats</label>
           <input
             id="location"
@@ -98,7 +108,11 @@ function Invitation() {
           <button
             className="generateBtn"
             onClick={handleCreateInvitation}
-            disabled={loading}
+            disabled={
+              loading ||
+              title.trim().length === 0 ||
+              purpose.trim().length === 0
+            }
           >
             {loading ? "Skapar inbjudan..." : "Generera inbjudan"}
           </button>
@@ -115,7 +129,7 @@ function Invitation() {
           )}
         </div>
       </section>
-    </main>
+    </>
   );
 }
 

@@ -16,6 +16,8 @@
   border-radius: 1rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.799);
   border: 1px solid rgb(6, 26, 37);
+  box-sizing: border-box;
+  padding-top: 1rem;
 }
 .inputContainer:hover {
   transform: scale(1.005);
@@ -71,7 +73,6 @@
 }
 .inputContainer h2 {
   font-size: 3rem;
-  margin-top: 1rem;
 }
 .inputContainer label {
   font-size: 1.5rem;
